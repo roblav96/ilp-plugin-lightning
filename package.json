@@ -19,7 +19,7 @@
 		"restart": "run-s build:protos start",
 		"watch": "run-p -s watch:*",
 		"watch:tsc": "tsc --watch",
-		"watch:restart": "nodemon --watch src --ext ts,proto --delay 1 --exec 'npm restart'"
+		"watch:restart": "nodemon --watch src --ext ts,proto --delay 1 --exec 'DEBUG=* npm restart'"
 	},
 	"dependencies": {
 		"@grpc/proto-loader": "latest",
@@ -35,6 +35,7 @@
 		"ilp-store-memory": "latest",
 		"is-base64": "latest",
 		"lodash": "latest",
+		"read-pkg-up": "^4.0.0",
 		"rxjs": "latest"
 	},
 	"devDependencies": {
@@ -49,6 +50,7 @@
 		"nodemon": "latest",
 		"npm-run-all": "latest",
 		"source-map-support": "latest",
+		"stacktracey": "latest",
 		"ts-node": "latest",
 		"typescript": "latest"
 	},

@@ -13,7 +13,7 @@ process.on('unhandledRejection', error => console.error(`UNHANDLED PROMISE REJEC
 
 // pretty console.log yay
 import util from 'util'
-Object.assign(util.inspect.defaultOptions, { depth: 2, showHidden: false, showProxy: false, compact: false, breakLength: Infinity, maxArrayLength: Infinity, sorted: true, colors: true } as Partial<typeof util.inspect.defaultOptions>)
+Object.assign(util.inspect.defaultOptions, { depth: 1, showHidden: false, showProxy: false, compact: false, breakLength: Infinity, maxArrayLength: Infinity, sorted: true, colors: true } as Partial<typeof util.inspect.defaultOptions>)
 Object.assign(util.inspect.styles, { string: 'green', regexp: 'green', date: 'green', number: 'magenta', boolean: 'blue', undefined: 'red', null: 'red', symbol: 'cyan', special: 'cyan' })
 
 
@@ -54,7 +54,7 @@ Object.assign(console, {
 
 
 
-// chrome devtools debugger will disconnect if process not kept alive
+// devtools debugger will disconnect if process not kept alive
 setTimeout(function() { }, Date.now() / 1000)
 
 
