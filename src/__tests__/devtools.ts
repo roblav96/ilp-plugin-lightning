@@ -58,7 +58,3 @@ Object.assign(console, {
 setTimeout(function() { }, Date.now() / 1000)
 
 
-
-console.log(`Date.nowz ->`, Date.nowssszss)
-
-
