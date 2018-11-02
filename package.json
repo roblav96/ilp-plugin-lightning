@@ -1,0 +1,73 @@
+{
+	"name": "ilp-plugin-lightning",
+	"version": "1.0.0",
+	"description": "Settle interledger payments using Lightning Network",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"!__tests__"
+	],
+	"scripts": {
+		"help": "npm run",
+		"build": "run-s -l build:*",
+		"build:clean": "del dist",
+		"build:protos": "cpy 'src/protos/*.proto' dist/protos",
+		"build:tsc": "tsc",
+		"prepublishOnly": "npm run build",
+		"start": "ts-node --project tsconfig.json --transpileOnly src/__tests__/start.ts",
+		"restart": "run-s build:protos start",
+		"watch": "run-p -s watch:*",
+		"watch:tsc": "tsc --watch",
+		"watch:restart": "nodemon --watch src --ext ts,proto --exec 'npm restart'"
+	},
+	"dependencies": {
+		"@grpc/proto-loader": "latest",
+		"bignumber.js": "latest",
+		"btp-packet": "latest",
+		"eventemitter3": "latest",
+		"get-port": "latest",
+		"grpc": "latest",
+		"ilp-logger": "latest",
+		"ilp-plugin-btp": "latest",
+		"ilp-plugin-mini-accounts": "github:interledgerjs/ilp-plugin-mini-accounts#ko-ts-fixes",
+		"ilp-protocol-stream": "github:interledgerjs/ilp-protocol-stream#ko-receive-only-tests",
+		"ilp-store-memory": "latest",
+		"is-base64": "latest",
+		"lodash": "latest",
+		"rxjs": "latest"
+	},
+	"devDependencies": {
+		"@types/get-port": "latest",
+		"@types/lodash": "latest",
+		"@types/node": "latest",
+		"cpy-cli": "latest",
+		"del-cli": "latest",
+		"dotenv": "latest",
+		"dts-gen-v2": "latest",
+		"exit-hook": "latest",
+		"nodemon": "latest",
+		"npm-run-all": "latest",
+		"source-map-support": "latest",
+		"ts-node": "latest",
+		"typescript": "latest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/roblav96/ilp-plugin-lightning.git"
+	},
+	"author": "roblav96",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/roblav96/ilp-plugin-lightning/issues"
+	},
+	"homepage": "https://github.com/roblav96/ilp-plugin-lightning#readme",
+	"keywords": [
+		"interledger",
+		"ilp",
+		"streaming",
+		"payments",
+		"lightning",
+		"lightning-network"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"lib": ["ESNext"],
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"preserveWatchOutput": true,
+		"sourceMap": true,
+		"target": "ESNext"
+	},
+	"include": ["src/**/*.ts"]
+}
