@@ -5,8 +5,6 @@ import 'dotenv/config'
 
 
 
-
-
 // need to be aware of all unprocessed errors
 process.on('uncaughtException', error => console.error(`UNCAUGHT EXCEPTION ->`, error))
 process.on('unhandledRejection', error => console.error(`UNHANDLED PROMISE REJECTION ->`, error))
@@ -39,7 +37,7 @@ exithook(() => inspector.close())
 declare global {
 	interface Console {
 		/**▶ generate typescript declarations for input
-		`console.log(`____ ->`, console.dtsgen(____))` */
+		`console.log('____ ->', console.dtsgen(____))` */
 		dtsgen(input: any): string
 	}
 }

@@ -19,7 +19,7 @@
 		"restart": "run-s build:protos start",
 		"watch": "run-p -s watch:*",
 		"watch:tsc": "tsc --watch",
-		"watch:restart": "nodemon --watch src --ext ts,proto --exec 'npm restart'"
+		"watch:restart": "nodemon --watch src --ext ts,proto --delay 1 --exec 'npm restart'"
 	},
 	"dependencies": {
 		"@grpc/proto-loader": "latest",
