@@ -19,16 +19,16 @@ Object.assign(util.inspect.styles, { string: 'green', regexp: 'green', date: 'gr
 
 
 // chrome devtools are life cheat codes
+declare global { interface Console { _stdout: tty.WriteStream } }
+import tty from 'tty'
 import inspector from 'inspector'
 import exithook from 'exit-hook'
-import tty from 'tty'
 inspector.open(process.debugPort)
-let stdout = (console as any)._stdout as tty.WriteStream
-if (stdout.isTTY) {
+if (console._stdout.isTTY) {
 	// dont clear my terminal brah! we only want to clear the devtools console
-	stdout.isTTY = false
+	console._stdout.isTTY = false
 	console.clear()
-	stdout.isTTY = true
+	console._stdout.isTTY = true
 }
 exithook(() => inspector.close())
 
